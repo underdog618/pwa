@@ -36,6 +36,7 @@
                     body: "歡迎進入30天PWA的世界",
                 };
                 navigator.serviceWorker.ready.then(function (sw) {
+                      console.log(123);
                     sw.showNotification("訂閱成功！！！", options);
                 });
             }
