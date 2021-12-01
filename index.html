@@ -31,13 +31,17 @@
         }
 
         function displayNotification() {
-                 
-            if ("serviceWorker" in navigator) {
-                    
-             var options = {
-        body: '您已成功訂閱我們的推播服務!'
-    }
-    new Notification('成功訂閱!!', options);
+           if ("serviceWorker" in navigator) {
+                var options = {
+                    body: "歡迎進入30天PWA的世界",
+                };
+
+                // 檢查browser有無支援serviceWorker
+                navigator.serviceWorker.register("/sw.js").then(function (sw) {
+                    console.log(123);
+                    // register會回傳一個Promise
+                    sw.showNotification("成功訂閱", options);
+                });
             }
         }
     </script>
